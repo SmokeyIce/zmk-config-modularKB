@@ -2,12 +2,10 @@
  *  Corne Left - Nice!nano v2 pin override
  */
 
-// no libraries needed, 
-// this file overrides the code written in corne_left.overlay
-// corne_left.overlay already includes the necessary libraries
+#include "board/shields/corne/corne.dtsi"
 
 
-// Which pins are active, sectioned by row-column
+// Which pins are active, sectioned by row-column, diode move col2row
 &kscan0 { 
     diode-direction = "col2row";
     row-gpios
