@@ -2,7 +2,9 @@
  *  Corne Left - Nice!nano v2 pin override
  */
 
- #include "corne.dtsi"
+// no libraries needed, 
+// this file overrides the code written in corne_left.overlay
+// corne_left.overlay already includes the necessary libraries
 
 
 // Which pins are active, sectioned by row-column
