@@ -27,8 +27,12 @@
         ;
 };
 
-// physical layout
 
+
+#UNDEF RC
+#include <dt-bindings/zmk/matrix_transform.h>
+
+// Physical layout
 &default_transform {
     compatible = "zmk,matrix-transform";
     columns = <3>;
