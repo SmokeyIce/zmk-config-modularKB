@@ -2,7 +2,7 @@
  *  Corne Left - Nice!nano v2 pin override
  */
 
-#include "board/shields/corne/corne.dtsi"
+#include "boards/shields/corne/corne.dtsi"
 
 
 // Which pins are active, sectioned by row-column, diode move col2row
