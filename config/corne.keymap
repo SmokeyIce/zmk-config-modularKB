@@ -7,7 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-
+#include <dt-bindings/zmk/matrix_transform.h>
 
 #include <dt-bindings/gpio/gpio.h>
 // PIN MAP OVERRIDE
@@ -32,7 +32,7 @@
 
 
 #UNDEF RC
-#include <dt-bindings/zmk/matrix_transform.h>
+#DEFINE RC(R,C) (((r) << 8)+(c))
 
 // Physical layout
 &default_transform {
