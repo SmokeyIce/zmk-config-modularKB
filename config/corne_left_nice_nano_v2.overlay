@@ -1,0 +1,39 @@
+/*
+ *  Corne Left - Nice!nano v2 pin override
+ */
+
+ #include "corne.dtsi"
+
+
+// Which pins are active, sectioned by row-column
+&kscan0 { 
+    diode-direction = "col2row";
+    row-gpios
+        = <&pro_micro 1 GPIO_ACTIVE_HIGH> // row 1
+        , <&pro_micro 0 GPIO_ACTIVE_HIGH> // row 2
+        , <&pro_micro 3 GPIO_ACTIVE_HIGH> // row 3
+        , <&pro_micro 5 GPIO_ACTIVE_HIGH> // row 4
+        , <&pro_micro 7 GPIO_ACTIVE_HIGH> // row 5
+        ;
+    col-gpios 
+        = <&pro_micro 19 GPIO_ACTIVE_HIGH> // column 1
+        , <&pro_micro 18 GPIO_ACTIVE_HIGH> // column 2
+        , <&pro_micro 14 GPIO_ACTIVE_HIGH> // column 3
+        , <&pro_micro 21 GPIO_ACTIVE_HIGH> // num led
+        ;
+};
+
+// physical layout
+
+&default_transform {
+    compatible = "zmk,matrix-transform";
+    columns = <3>;
+    rows = <5>;
+    map = <
+        RC(0,0) RC(0,1) RC(0,2)
+        RC(1,0) RC(1,1) RC(1,2)
+        RC(2,0) RC(2,1) RC(2,2) 
+        RC(3,0) RC(3,1) RC(3,2)
+        RC(4,0) RC(4,2)
+    >;
+};
