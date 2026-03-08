@@ -32,8 +32,8 @@
 
 // #include "matrix_transform.h" defines row coulmn like this
 // every row is n*256 + col
-#UNDEF RC
-#DEFINE RC(R,C) (((r) << 8)+(c))
+#undef RC
+#define RC(R,C) (((r) << 8)+(c))
 
 // Physical layout
 &default_transform {
