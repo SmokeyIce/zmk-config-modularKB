@@ -33,7 +33,7 @@
 // #include "matrix_transform.h" defines row coulmn like this
 // every row is n*256 + col
 
-#define RoCO(R,C) (((r) << 8)+(c))
+#define RoCo(R,C) (((r) << 8)+(c))
 
 // Physical layout
 &default_transform {
