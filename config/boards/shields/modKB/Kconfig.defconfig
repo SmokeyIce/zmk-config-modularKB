@@ -1,0 +1,8 @@
+// board naming and other settings
+// Reference corne
+
+if SHEILD_MODKB
+config ZMK_KEYBOARD_NAME
+    default "ModularKeyboard"
+
+endif
