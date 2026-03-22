@@ -7,4 +7,10 @@ if SHEILD_MODKB
 config ZMK_KEYBOARD_NAME
     default "ModularKeyboard"
 
+config ZMK_DISPLAY
+    default n
+
+config ZMK_SPLIT
+    default n 
+
 endif
