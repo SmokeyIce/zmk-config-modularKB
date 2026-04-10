@@ -1,9 +1,9 @@
 
 .zmk/
-./west
 build/
 zmk/
 zephyr/
 modules/
 optional/
 .DS_Store
+.west/
