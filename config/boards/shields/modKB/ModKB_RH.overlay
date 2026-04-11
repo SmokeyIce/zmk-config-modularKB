@@ -1,0 +1,52 @@
+
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen{
+        zmk,kscan = &default_kscan;
+        zmk,matrix_transform = &default_transform;
+    };
+
+
+// PIN MAPPING RIGHT HALF
+
+    // diode move col2row or row2col?
+
+    default_kscan: kscan { 
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        row-gpios
+            = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 21
+            , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 22
+            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 23
+            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 24
+            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 25
+            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 26
+            ;
+        col-gpios 
+            = <&pro_micro 6 GPIO_ACTIVE_HIGH > // column 21
+            , <&pro_micro 7 GPIO_ACTIVE_HIGH > // column 22
+            , <&pro_micro 8 GPIO_ACTIVE_HIGH > // column 23
+            , <&pro_micro 9 GPIO_ACTIVE_HIGH > // column 24
+            , <&pro_micro 10 GPIO_ACTIVE_HIGH > // column 25
+            , <&pro_micro 16 GPIO_ACTIVE_HIGH > // column 26
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH > // column 27
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH > // column 28
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH > // column 29
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH > // column 210
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH > // column 211
+            , <&pro_micro 21 GPIO_ACTIVE_HIGH > // column 212
+            ;
+    };
+
+
+// Physical layout
+    default_transform: matrix_transform {
+        compatible = "zmk,matrix-transform";
+        columns = <12>;
+        rows = <6>;
+        map = <
+            RC(0,0)
+        >;
+    };
+};
