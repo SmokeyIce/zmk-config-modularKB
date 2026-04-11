@@ -5,7 +5,7 @@
 
 if SHEILD_MODKB
 config ZMK_KEYBOARD_NAME
-    default "ModularKeyboard"
+    default "Num Pad"
 
 config ZMK_DISPLAY
     default n
