@@ -3,14 +3,28 @@
 # "#" is a comment, // is not a valid token for Kconfig files
 
 
-if SHEILD_MODKB
+if SHEILD_MODKB_LH
 config ZMK_KEYBOARD_NAME
     default "ModularKeyboard"
 
 config ZMK_DISPLAY
     default n
 
-config ZMK_SPLIT
-    default n 
-
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
 endif
+
+if SHEILD_MODKB_LH || SHIELD_MODKB_RH
+config ZMK_SPLIT
+    default y
+endif 
+
+if SHEILD_MODKB_LH || SHIELD_MODKB_RH || SHIELD_MODKB_KP
+config ZMK_SPLIT
+    default y
+endif 
+
+if SHEILD_MODKB_LH || SHIELD_MODKB_KP
+config ZMK_SPLIT
+    default y
+endif 
