@@ -1,10 +1,7 @@
 
 .zmk/
 build/
-zmk/
-zephyr/
-modules/
-optional/
+
 .DS_Store
 .west/
 !zephy/module.yml
