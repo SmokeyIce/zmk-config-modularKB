@@ -3,7 +3,7 @@
 # "#" is a comment, // is not a valid token for Kconfig files
 
 
-if SHEILD_MODKB
+if SHIELD_MODKB
 config ZMK_KEYBOARD_NAME
     default "Num Pad"
 
