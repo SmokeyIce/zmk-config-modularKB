@@ -1,0 +1,6 @@
+west:
+  command: /Users/irinavorobieva/.local/bin/west build -d build -p -b nice_nano -s
+    zmk/app -- -DZMK_CONFIG=/Users/irinavorobieva/Documents/modKB/config -DZMK_EXTRA_MODULES=/Users/irinavorobieva/Documents/modKB/modkb-zmk-module
+    -DSHIELD=ModKB
+  topdir: /Users/irinavorobieva/Documents/modKB
+  version: 1.5.0

@@ -1,8 +1,4 @@
 
 .zmk/
-build/
-
-.DS_Store
-.west/
-!zephy/module.yml
-!modules/audio/sof
+.cursor/
+./west

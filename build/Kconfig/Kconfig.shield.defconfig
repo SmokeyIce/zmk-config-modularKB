@@ -1,0 +1,3 @@
+osource "/Users/irinavorobieva/Documents/modKB/modkb-zmk-module/boards/shields/*/Kconfig.defconfig"
+osource "/Users/irinavorobieva/Documents/modKB/zmk/app/module/boards/shields/*/Kconfig.defconfig"
+osource "/Users/irinavorobieva/Documents/modKB/zmk/app/boards/shields/*/Kconfig.defconfig"

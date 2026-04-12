@@ -1,0 +1,73 @@
+# Available runners configured by board.cmake.
+runners:
+- uf2
+- nrfjprog
+- uf2
+- nrfjprog
+- uf2
+- nrfjprog
+
+# Default flash runner if --runner is not given.
+flash-runner: uf2
+
+# Common runner configuration values.
+config:
+  board_dir: /Users/irinavorobieva/Documents/modKB/zmk/app/boards/arm/nice_nano
+  # Build outputs:
+  elf_file: zmk.elf
+  hex_file: zmk.hex
+  bin_file: zmk.bin
+  uf2_file: zmk.uf2
+  # Host tools:
+  gdb: /Users/irinavorobieva/zephyr-sdk-0.16.9/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb
+
+# Runner specific arguments
+args:
+  uf2:
+    []
+
+  nrfjprog:
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+  uf2:
+    []
+
+  nrfjprog:
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+  uf2:
+    []
+
+  nrfjprog:
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset
+    - --nrf-family=NRF52
+    - --softreset

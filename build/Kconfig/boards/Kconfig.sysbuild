@@ -1,0 +1,4 @@
+# Load Sysbuild board Kconfig descriptions.
+osource "/Users/irinavorobieva/Documents/modKB/zmk/app/boards/arm/nice_nano/Kconfig.sysbuild"
+osource "/Users/irinavorobieva/Documents/modKB/zmk/app/module/boards/nicekeyboards/nice_nano/Kconfig.sysbuild"
+osource "/Users/irinavorobieva/Documents/modKB/zmk/app/boards/nicekeyboards/nice_nano/Kconfig.sysbuild"

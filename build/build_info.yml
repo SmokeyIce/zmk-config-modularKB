@@ -1,0 +1,68 @@
+cmake:
+  application:
+    configuration-dir: /Users/irinavorobieva/Documents/modKB/zmk/app
+    source-dir: /Users/irinavorobieva/Documents/modKB/zmk/app
+  board:
+    name: nice_nano
+    path:
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/boards/arm/nice_nano
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/module/boards/nicekeyboards/nice_nano
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/boards/nicekeyboards/nice_nano
+    qualifiers: nrf52840
+    revision: 2.0.0
+  devicetree:
+    bindings-dirs:
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/module/dts/bindings
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/dts/bindings
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/bindings
+    extra-user-files:
+     - /Users/irinavorobieva/Documents/modKB/modkb-zmk-module/boards/shields/modKB/modKB.keymap
+    files:
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/module/boards/nicekeyboards/nice_nano/nice_nano.dts
+     - /Users/irinavorobieva/Documents/modKB/modkb-zmk-module/boards/shields/modKB/ModKB.overlay
+     - /Users/irinavorobieva/Documents/modKB/modkb-zmk-module/boards/shields/modKB/modKB.keymap
+    include-dirs:
+     - /Users/irinavorobieva/Documents/modKB/modules/hal/stm32/dts
+     - /Users/irinavorobieva/Documents/modKB/modules/hal/atmel/include
+     - /Users/irinavorobieva/Documents/modKB/modules/hal/gigadevice/include
+     - /Users/irinavorobieva/Documents/modKB/modules/hal/nuvoton/dts
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/module/include
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/module/dts
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/include
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/dts/common
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/dts
+     - /Users/irinavorobieva/Documents/modKB/zephyr/include
+     - /Users/irinavorobieva/Documents/modKB/zephyr/include/zephyr
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/common
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/x86
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/xtensa
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/sparc
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/riscv
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/posix
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/nios2
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/arm64
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/arm
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts/arc
+     - /Users/irinavorobieva/Documents/modKB/zephyr/dts
+  kconfig:
+    files:
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/boards/arm/nice_nano/nice_nano_defconfig
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/module/boards/nicekeyboards/nice_nano/nice_nano_2_0_0_defconfig
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/prj.conf
+     - /Users/irinavorobieva/Documents/modKB/modkb-zmk-module/boards/shields/modKB/ModKB.conf
+    user-files:
+     - /Users/irinavorobieva/Documents/modKB/zmk/app/prj.conf
+  toolchain:
+    name: zephyr
+    path: /Users/irinavorobieva/zephyr-sdk-0.16.9
+  vendor-specific:
+    nordic:
+      svdfile: /Users/irinavorobieva/Documents/modKB/modules/hal/nordic/nrfx/mdk/nrf52840.svd
+  zephyr:
+    version: 4.1.0
+    zephyr-base: /Users/irinavorobieva/Documents/modKB/zephyr
+version: 0.1.0
+west:
+  command: /Users/irinavorobieva/.local/bin/west build -d build -p -b nice_nano -s zmk/app -- -DZMK_CONFIG=/Users/irinavorobieva/Documents/modKB/config -DZMK_EXTRA_MODULES=/Users/irinavorobieva/Documents/modKB/modkb-zmk-module -DSHIELD=ModKB
+  topdir: /Users/irinavorobieva/Documents/modKB
+  version: 1.5.0
