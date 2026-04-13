@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+Never create or delete files, unless requested, just print out the code you want to write. If you're going to suggest terminal commands, like rm -rf, or git commands, I want you to explain the work flow your about to suggest with details on what each part of the command does for my own comprehension and so that I can look over what you want to do. if you're producing Latex test, use inline latex like $latex syntax in here for a proper latex output$

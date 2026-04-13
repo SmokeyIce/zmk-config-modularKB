@@ -3,9 +3,9 @@
 
 / {
 //chosen
-    chosen{
+    chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layout = &physical-layout0;
+        zmk,physical-layout = &physical_layout0;
     };
 
 
@@ -59,8 +59,8 @@
 
 //physical layout
 
-    physical_layout0: physcial_layout_0 {
-        compatible = "zmk,physcial-layout";
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
         display-name = "Default layout";
         transform = <&default_transform>;
     };
