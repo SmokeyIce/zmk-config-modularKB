@@ -1,0 +1,15 @@
+file_format: "1"
+id: ModKB
+name: ModKB
+type: shield
+url: https://github.com/SmokeyIce/zmk-config-modularKB
+requires:
+  - pro_micro
+exposes: []
+features:
+  - keys
+board_root: .
+siblings:
+  - ModKB_LH
+  - ModKB_RH
+  - ModKB_KP

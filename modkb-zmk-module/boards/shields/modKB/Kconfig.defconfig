@@ -14,17 +14,7 @@ config ZMK_SPLIT_ROLE_CENTRAL
     default y
 endif
 
-if SHIELD_MODKB_LH || SHIELD_MODKB_RH
-config ZMK_SPLIT
-    default y
-endif 
-
 if SHIELD_MODKB_LH || SHIELD_MODKB_RH || SHIELD_MODKB_KP
-config ZMK_SPLIT
-    default y
-endif 
-
-if SHIELD_MODKB_LH || SHIELD_MODKB_KP
 config ZMK_SPLIT
     default y
 endif 

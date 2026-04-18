@@ -1,10 +1,19 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "ModKB.dtsi"
+
+
+
+//transform
+
+    &default_transform {
+        col-offset = <8>;
+    };
 
 / {
 //chosen
     chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layout = &physical_layout0;
+        zmk,physical-layout = &physical_layout;
     };
 
 
@@ -43,29 +52,5 @@
     };
 
 
-//transform
-
-    default_transform: matrix_transform {
-        compatible = "zmk,matrix-transform";
-        col-offset = <8>;
-        columns = <20>;
-        rows = <6>;
-        map = <
-                    RC(0,9) RC(0,10) RC(0,11) RC(0,12) RC(0,13) RC(0,14) RC(0,15) RC(0,16) RC(0,17) RC(0,18) RC(0,19) //row 1
-                    RC(1,9) RC(1,10) RC(1,11) RC(1,12) RC(1,13) RC(1,14)          RC(1,16) RC(1,17) RC(1,18) RC(1,19) //row 2
-            RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12) RC(2,13) RC(2,14)          RC(2,16) RC(2,17) RC(2,18) RC(2,19) //row 3
-                    RC(3,9) RC(3,10) RC(3,11) RC(3,12) RC(3,13) RC(3,14)          RC(3,16)                            //row 4
-                            RC(4,10) RC(4,11) RC(4,12) RC(4,13) RC(4,14)          RC(4,16)          RC(4,18)          //row 5
-                                     RC(5,11)          RC(5,13) RC(5,14) RC(5,15) RC(5,16) RC(5,17) RC(5,18) RC(5,19) //row 6
-        >;
-    };
-
-//physical layout
-
-    physical_layout0: physical_layout_0 {
-        compatible = "zmk,physical-layout";
-        display-name = "Default layout";
-        transform = <&default_transform>;
-    };
 
 };
