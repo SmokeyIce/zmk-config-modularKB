@@ -8,11 +8,15 @@
     &default_transform {
         col-offset = <0>;
     };
+
+
 / {
 //chosen
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout;
+        zmk,battery = &vbatt;
+        zmk,indicator-leds = &indicators; 
     };
 
 
@@ -55,16 +59,17 @@
         compatible = "gpio-leds";
 
         caps_lock_led: caps_lock_led {
-            gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
+            gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
         };
     };
 
-    indicators {
+    indicators: indicators {
             compatible = "zmk,indicator-leds";
 
             caps_lock_indicator: caps_lock {
                 indicator = <HID_INDICATOR_CAPS_LOCK>;
                 leds = <&caps_lock_led>;
+                on-while-idle;
             };
     };
 

@@ -15,10 +15,22 @@
         >;
     };
 
+// PHYSICAL LAYOUT
+
     physical_layout: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "default layout";
         transform = <&default_transform>;
     };
 
+// BATTERY
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+
+};
+
+//for battery
+&reg0 {
+    status = "okay";
 };

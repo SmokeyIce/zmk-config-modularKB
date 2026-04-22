@@ -1,5 +1,4 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/zmk/hid_indicators.h>
 #include "ModKB.dtsi"
 
 
@@ -8,11 +7,14 @@
     &default_transform {
         col-offset = <20>;
     };
+
+
 / {
 //chosen
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout;
+        zmk,battery = &vbatt;
     };
 
 
@@ -47,28 +49,30 @@
     };
 
 
+// led and indicators, only work on central
+// so leds are defined in LH
 
+leds {
+    compatible = "gpio-leds";
 
-
-//led and indicators
-    // development verison, cant use the library in 0.3V
-    leds {
-        compatible = "gpio-leds";
-
-        num_lock_led: num_lock{
-            gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
-        };
+    num_lock_led: num_lock_led {
+        gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
     };
-
-    indicators {
-            compatible = "zmk,indicator-leds";
-
-            num_lock_indicator: num_lock {
-                indicator = <HID_INDICATOR_NUM_LOCK>;
-                leds = <&num_lock_led>;
-            };
-    };
+};
 
 };
 
 
+
+/*
+
+        num_lock_led: num_lock{
+            gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+        };
+
+            num_lock_indicator: num_lock {
+                indicator = <HID_INDICATOR_NUM_LOCK>;
+                leds = <&num_lock_led>;
+                on-while-idle;
+            };
+*/
