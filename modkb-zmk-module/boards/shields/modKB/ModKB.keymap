@@ -1,6 +1,8 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 
 / {
@@ -20,19 +22,33 @@
         // | M5 | |  SHIFT   |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |   SHIFT         | |       |  UP  |        | |  1  |  2  |  3  |     |
         // | M6 | |  CTL  |  WIN  |  ALT  |    SPACE    | |      SPACE     | ALT  |  WIN  |MENU| CTRL|     | |   LEFT| DOWN | RIGHT  | |  0        | DEL | ENT |
             bindings = <
-                &kp A    &kp ESC              &kp F1    &kp F2    &kp F3    &kp F4                         &kp F5      &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12       &kp PSCRN &kp SLCK   &kp PAUSE_BREAK  &kp K_PREV  &kp K_PP      &kp K_NEXT      &kp E
+                &kp A     &kp ESC          &kp F1    &kp F2    &kp F3    &kp F4                         &kp F5      &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12       &kp PSCRN &kp SLCK   &kp PAUSE_BREAK  &kp K_PREV  &kp K_PP      &kp K_NEXT      &kp E
                 &kp B    &kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5   &kp N6                &kp N7      &kp N8     &kp N9     &kp N0     &kp MINUS  &kp EQUAL             &kp BSPC      &kp INS   &kp HOME   &kp PG_UP        &kp KP_NUM  &kp KP_DIVIDE &kp KP_MULTIPLY &kp KP_MINUS
                 &kp C    &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T                   &kp Y  &kp U       &kp I      &kp O      &kp P      &kp LBKT   &kp RBKT              &kp BSLH      &kp DEL   &kp END    &kp PG_DN        &kp KP_N7   &kp KP_N8     &kp KP_N9   
-                &kp D    &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G                          &kp H       &kp J      &kp K      &kp L      &kp SEMI   &kp SQT               &kp RET                                             &kp KP_N4   &kp KP_N5     &kp KP_N6       &kp KP_PLUS 
-                &kp E    &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B                                      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH              &kp RSHFT                &kp UP                     &kp KP_N1   &kp KP_N2     &kp KP_N3   
-                &kp F    &kp LCTRL  &kp LGUI  &kp LALT                      &kp SPACE                                             &kp SPACE             &kp RALT   &kp RGUI  &kp K_MENU  &kp RCTRL     &kp LEFT &kp DOWN &kp RIGHT           &kp KP_N0                 &kp KP_DOT      &kp KP_ENTER
+                &kp D           &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G                          &kp H       &kp J      &kp K      &kp L      &kp SEMI   &kp SQT               &kp RET                                             &kp KP_N4   &kp KP_N5     &kp KP_N6       &kp KP_PLUS 
+                &kp E           &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B                                      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH              &kp RSHFT                &kp UP                     &kp KP_N1   &kp KP_N2     &kp KP_N3   
+                &mo 1           &kp LCTRL  &kp LGUI  &kp LALT                      &kp SPACE                                             &kp SPACE             &kp RALT   &kp RGUI  &kp K_MENU  &kp RCTRL     &kp LEFT &kp DOWN &kp RIGHT           &kp KP_N0                 &kp KP_DOT      &kp KP_ENTER
             >;
-            //  RC(0,0)   RC(0,1)             RC(0,3)   RC(0,4)   RC(0,5)   RC(0,6)                          RC(0,9)   RC(0,10)   RC(0,11)   RC(0,12)   RC(0,13)   RC(0,14)   RC(0,15)   RC(0,16)      RC(0,17)   RC(0,18)   RC(0,19)          RC(0,20)     RC(0,21)     RC(0,22)     RC(0,23) //row 1
-            //  RC(1,0)   RC(1,1)   RC(1,2)   RC(1,3)   RC(1,4)   RC(1,5)   RC(1,6)   RC(1,7)                RC(1,9)   RC(1,10)   RC(1,11)   RC(1,12)   RC(1,13)   RC(1,14)              RC(1,16)      RC(1,17)   RC(1,18)   RC(1,19)          RC(1,20)     RC(1,21)     RC(1,22)     RC(1,23) //row 2
-            //  RC(2,0)   RC(2,1)   RC(2,2)   RC(2,3)   RC(2,4)   RC(2,5)   RC(2,6)                RC(2,8)   RC(2,9)   RC(2,10)   RC(2,11)   RC(2,12)   RC(2,13)   RC(2,14)              RC(2,16)      RC(2,17)   RC(2,18)   RC(2,19)          RC(2,20)     RC(2,21)     RC(2,22)              //row 3
-            //  RC(3,0)   RC(3,1)   RC(3,2)   RC(3,3)   RC(3,4)   RC(3,5)   RC(3,6)                          RC(3,9)   RC(3,10)   RC(3,11)   RC(3,12)   RC(3,13)   RC(3,14)              RC(3,16)                                              RC(3,20)     RC(3,21)     RC(3,22)     RC(3,23) //row 4
-            //  RC(4,0)   RC(4,1)   RC(4,2)   RC(4,3)   RC(4,4)   RC(4,5)   RC(4,6)                                    RC(4,10)   RC(4,11)   RC(4,12)   RC(4,13)   RC(4,14)              RC(4,16)                 RC(4,18)                     RC(4,20)     RC(4,21)     RC(4,22)              //row 5
-            //  RC(5,0)   RC(5,1)   RC(5,2)   RC(5,3)                       RC(5,6)                                               RC(5,11)              RC(5,13)   RC(5,14)   RC(5,15)   RC(5,16)      RC(5,17)   RC(5,18)   RC(5,19)          RC(5,20)                  RC(5,22)     RC(5,23) //row 6
+            //  RC(0,0)       RC(0,1)             RC(0,3)   RC(0,4)   RC(0,5)   RC(0,6)                          RC(0,9)   RC(0,10)   RC(0,11)   RC(0,12)   RC(0,13)   RC(0,14)   RC(0,15)   RC(0,16)      RC(0,17)   RC(0,18)   RC(0,19)          RC(0,20)     RC(0,21)     RC(0,22)     RC(0,23) //row 1
+            //  RC(1,0)       RC(1,1)   RC(1,2)   RC(1,3)   RC(1,4)   RC(1,5)   RC(1,6)   RC(1,7)                RC(1,9)   RC(1,10)   RC(1,11)   RC(1,12)   RC(1,13)   RC(1,14)              RC(1,16)      RC(1,17)   RC(1,18)   RC(1,19)          RC(1,20)     RC(1,21)     RC(1,22)     RC(1,23) //row 2
+            //  RC(2,0)       RC(2,1)   RC(2,2)   RC(2,3)   RC(2,4)   RC(2,5)   RC(2,6)                RC(2,8)   RC(2,9)   RC(2,10)   RC(2,11)   RC(2,12)   RC(2,13)   RC(2,14)              RC(2,16)      RC(2,17)   RC(2,18)   RC(2,19)          RC(2,20)     RC(2,21)     RC(2,22)              //row 3
+            //  RC(3,0)       RC(3,1)   RC(3,2)   RC(3,3)   RC(3,4)   RC(3,5)   RC(3,6)                          RC(3,9)   RC(3,10)   RC(3,11)   RC(3,12)   RC(3,13)   RC(3,14)              RC(3,16)                                              RC(3,20)     RC(3,21)     RC(3,22)     RC(3,23) //row 4
+            //  RC(4,0)       RC(4,1)   RC(4,2)   RC(4,3)   RC(4,4)   RC(4,5)   RC(4,6)                                    RC(4,10)   RC(4,11)   RC(4,12)   RC(4,13)   RC(4,14)              RC(4,16)                 RC(4,18)                     RC(4,20)     RC(4,21)     RC(4,22)              //row 5
+            //  RC(5,0)       RC(5,1)   RC(5,2)   RC(5,3)                       RC(5,6)                                               RC(5,11)              RC(5,13)   RC(5,14)   RC(5,15)   RC(5,16)      RC(5,17)   RC(5,18)   RC(5,19)          RC(5,20)                  RC(5,22)     RC(5,23) //row 6
         };  
+
+        ble {
+            display-name = "BLE";
+            bindings = <
+
+                &bt BT_CLR      &kp ESC          &kp F1    &kp F2    &kp F3    &kp F4                         &kp F5      &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12       &kp PSCRN &kp SLCK   &kp PAUSE_BREAK  &kp K_PREV  &kp K_PP      &kp K_NEXT      &kp E
+                &out OUT_BLE    &kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5   &kp N6                &kp N7      &kp N8     &kp N9     &kp N0     &kp MINUS  &kp EQUAL             &kp BSPC      &kp INS   &kp HOME   &kp PG_UP        &kp KP_NUM  &kp KP_DIVIDE &kp KP_MULTIPLY &kp KP_MINUS
+                &bt BT_SEL 0    &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T                   &kp Y  &kp U       &kp I      &kp O      &kp P      &kp LBKT   &kp RBKT              &kp BSLH      &kp DEL   &kp END    &kp PG_DN        &kp KP_N7   &kp KP_N8     &kp KP_N9   
+                &kp G           &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G                          &kp H       &kp J      &kp K      &kp L      &kp SEMI   &kp SQT               &kp RET                                             &kp KP_N4   &kp KP_N5     &kp KP_N6       &kp KP_PLUS 
+                &kp H           &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B                                      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH              &kp RSHFT                &kp UP                     &kp KP_N1   &kp KP_N2     &kp KP_N3   
+                &kp K           &kp LCTRL  &kp LGUI  &kp LALT                      &kp SPACE                                             &kp SPACE             &kp RALT   &kp RGUI  &kp K_MENU  &kp RCTRL     &kp LEFT &kp DOWN &kp RIGHT           &kp KP_N0                 &kp KP_DOT      &kp KP_ENTER
+                >;
+        };
+
 	};
 };

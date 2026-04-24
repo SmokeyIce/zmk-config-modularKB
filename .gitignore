@@ -1,3 +1,21 @@
 
 
-build/
+.west/manifest-tmp/
+.zmk/
+
+#ingore all builds
+
+build*/
+build-*/
+
+#include only these specific files in build/
+!build-*/zephyr/
+build-*/zephyr/*
+!build-*/zephyr/zmk.uf2
+!build-*/zephyr/build.log
+!build-*/zephyr/.config
+
+#files can be used in debuggin
+!build-*/zephyr/zephyr.elf
+!build-*/zephyr/zephyr.map
+!build-*/zephyr/zephyr.bin
