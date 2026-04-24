@@ -52,16 +52,32 @@
 // led and indicators, only work on central
 // so leds are defined in LH
 
-leds {
-    compatible = "gpio-leds";
+    leds {
+        compatible = "gpio-leds";
 
-    num_lock_led: num_lock_led {
-        gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+        num_lock_led: num_lock_led {
+            gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
+        };
     };
-};
+
+
+// EC11
+
+    ec11_0: ec11_0 {
+        compatible = "alps,ec11";
+        a-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
+        b-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
+        steps = <20>; //Number of encoder pulses per complete rotation
+        status= "okay";
+    };
+ 
+   sensors: sensors{
+        compatible = "zmk,keymap-sensors";
+        sensors = <&ec11_0>;
+        triggers-per-rotation = <20>;
+    };
 
 };
-
 
 
 /*
