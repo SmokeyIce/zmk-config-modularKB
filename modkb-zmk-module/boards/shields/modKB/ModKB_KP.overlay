@@ -1,11 +1,12 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/zmk/hid_indicators.h>
 #include "ModKB.dtsi"
 
 
 //transform
 
     &default_transform {
-        col-offset = <20>;
+        col-offset = <0>;
     };
 
 
@@ -15,6 +16,7 @@
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout;
         zmk,battery = &vbatt;
+        zmk,indicator-leds = &indicators;
     };
 
 
@@ -36,7 +38,7 @@
             
 
             //, <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // ROT A
-            //, <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // ROT B
+            //, <&pro_micro 6 .. Needs to be ground> // ROT B
             //, <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // ROT C
 
             ;
@@ -52,14 +54,25 @@
 // led and indicators, only work on central
 // so leds are defined in LH
 
+//led and idicators
+    // development verison, cant use the library in 0.3V
     leds {
         compatible = "gpio-leds";
 
         num_lock_led: num_lock_led {
-            gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
+            gpios = <&pro_micro 21 GPIO_ACTIVE_LOW>;
         };
     };
 
+    indicators: indicators {
+            compatible = "zmk,indicator-leds";
+
+            num_lock_indicator: num_lock {
+                indicator = <HID_INDICATOR_NUM_LOCK>;
+                leds = <&num_lock_led>;
+                on-while-idle;
+            };
+    };
 
 // EC11
 
@@ -68,10 +81,10 @@
         a-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
         b-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
         steps = <20>; //Number of encoder pulses per complete rotation
-        status= "okay";
+        status = "okay";
     };
  
-   sensors: sensors{
+   sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&ec11_0>;
         triggers-per-rotation = <20>;
