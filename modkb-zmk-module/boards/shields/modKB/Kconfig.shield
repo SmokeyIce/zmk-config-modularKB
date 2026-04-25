@@ -1,8 +1,2 @@
-config SHIELD_MODKB_LH
-    def_bool $(shields_list_contains, ModKB_LH)
-
 config SHIELD_MODKB_RH
     def_bool $(shields_list_contains, ModKB_RH)
-
-config SHIELD_MODKB_KP
-    def_bool $(shields_list_contains, ModKB_KP)
