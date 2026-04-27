@@ -35,18 +35,13 @@
             , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 34
             , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 35
             , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 36
-            
-
-            //, <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // ROT A
-            //, <&pro_micro 6 .. Needs to be ground> // ROT B
-            //, <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // ROT C
 
             ;
         col-gpios 
             = <&pro_micro 1 GPIO_ACTIVE_HIGH > // column 31
-            , <&pro_micro 18 GPIO_ACTIVE_HIGH > // column 32
-            , <&pro_micro 14 GPIO_ACTIVE_HIGH > // column 33
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH > // column 34
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH > // column 32
+            , <&pro_micro 21 GPIO_ACTIVE_HIGH > // column 33
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH > // column 34
             ;
     };
 
@@ -78,12 +73,13 @@
 
     ec11_0: ec11_0 {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
-        b-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
+        a-gpios = <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         steps = <20>; //Number of encoder pulses per complete rotation
         status = "okay";
     };
- 
+ //(GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+ //(GPIO_ACTIVE_LOW | GPIO_PULL_UP)
    sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&ec11_0>;
