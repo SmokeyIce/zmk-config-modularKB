@@ -27,12 +27,12 @@
         diode-direction = "col2row";
 
         row-gpios
-            = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 31
-            , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 32
-            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 33
-            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 34
-            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 35
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 36
+            = <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 31
+            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 32
+            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 33
+            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 34
+            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 35
+            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // row 36
             
 
             //, <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) > // ROT A
@@ -41,10 +41,10 @@
 
             ;
         col-gpios 
-            = <&pro_micro 19 GPIO_ACTIVE_HIGH > // column 31
-            , <&pro_micro 18 GPIO_ACTIVE_HIGH > // column 32
-            , <&pro_micro 14 GPIO_ACTIVE_HIGH > // column 33
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH > // column 34
+            = <&pro_micro 1 GPIO_ACTIVE_HIGH > // column 31
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH > // column 32
+            , <&pro_micro 21 GPIO_ACTIVE_HIGH > // column 33
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH > // column 34
             ;
     };
 
@@ -56,7 +56,7 @@
         compatible = "gpio-leds";
 
         num_lock_led: num_lock_led {
-            gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
+            gpios = <&pro_micro 18 GPIO_ACTIVE_HIGH>;
         };
     };
 
@@ -65,16 +65,16 @@
 
     ec11_0: ec11_0 {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
+        a-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
         b-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
-        steps = <20>; //Number of encoder pulses per complete rotation
+        steps = <25>; //Number of encoder pulses per complete rotation
         status= "okay";
     };
  
    sensors: sensors{
         compatible = "zmk,keymap-sensors";
         sensors = <&ec11_0>;
-        triggers-per-rotation = <20>;
+        triggers-per-rotation = <25>;
     };
 
 };
