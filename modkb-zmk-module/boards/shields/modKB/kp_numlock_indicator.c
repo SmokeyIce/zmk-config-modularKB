@@ -5,11 +5,10 @@
 #include <zephyr/init.h>
 
 #include <zmk/event_manager.h>
+#include <dt-bindings/zmk/hid_indicators.h>
 #include <zmk/events/hid_indicators_changed.h>
 
-#if  DT_NODE_EXISTS(DT_NODELABEL(num_lock_led))
-
-#define KP_HID_INDICATOR_NUM_LOCK 0x01
+#if  DT_NODE_EXISTS(DT_NODELABEL(num_lock_led)) && defined(CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS)
 
 static const struct gpio_dt_spec num_lock_led =
     GPIO_DT_SPEC_GET(DT_NODELABEL(num_lock_led), gpios);
@@ -30,7 +29,7 @@ static int kp_numlock_led_listener(const zmk_event_t *eh) {
         return ZMK_EV_EVENT_BUBBLE;
     }
 
-    const bool on = (ev -> indicators & KP_HID_INDICATOR_NUM_LOCK) != 0;
+    const bool on = (ev->indicators & KP_HID_INDICATOR_NUM_LOCK) != 0;
     gpio_pin_set_dt(&num_lock_led, on);
     return ZMK_EV_EVENT_BUBBLE;
 }

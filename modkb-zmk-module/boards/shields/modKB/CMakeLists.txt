@@ -1,5 +1,7 @@
-if("${SHIELD}" STREQUAL "ModKB_KP" AND CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS) 
-    # Expose ZMK app public headers to kp_numlock_indicator
-    zephyr_library_include_directories(${CMAKE_SOURCE_DIR}/include)
-    zephyr_library_sources(kp_numlock_indicator.c)
+zephyr_library_include_directories(${APPLICATION_SOURCE_DIR}/include)
+if("${SHIELD}" STREQUAL "ModKB_LH" AND CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS)
+    zephyr_library_sources(${CMAKE_CURRENT_LIST_DIR}/caps_lock_indicator.c)
+endif()
+if("${SHIELD}" STREQUAL "ModKB_KP" AND CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS)
+    zephyr_library_sources(${CMAKE_CURRENT_LIST_DIR}/kp_numlock_indicator.c)
 endif()

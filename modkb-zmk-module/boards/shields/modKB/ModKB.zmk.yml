@@ -10,6 +10,7 @@ features:
   - keys
 board_root: .
 siblings:
+  - ModKB_dongle
   - ModKB_LH
   - ModKB_RH
   - ModKB_KP

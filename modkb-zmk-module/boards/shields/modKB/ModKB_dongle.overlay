@@ -1,0 +1,38 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include "ModKB.dtsi"
+
+//MDBT50Q-RX == raytac_mdbt50q_db_40
+
+&vbatt {
+    status="disabled";
+};
+
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+        zmk,physical-layout = &physical_layout;
+    };
+
+    mock_kscan: mock_kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+
+/* Must match ModKB_KP.overlay phandle name for shared modKB.keymap sensor-bindings */
+	ec11_0: ec11_0 {
+		compatible = "alps,ec11";
+		/* Stub: confirm P0.02 / P0.03 are unused or safe on YOUR PCB (RX vs DB-40). */
+		a-gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+		b-gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+		steps = <5>;
+		status = "okay";
+	};
+	sensors: sensors {
+		compatible = "zmk,keymap-sensors";
+		sensors = <&ec11_0>;
+		triggers-per-rotation = <5>;
+	};
+
+};
